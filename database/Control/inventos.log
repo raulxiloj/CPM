@@ -1,0 +1,76 @@
+
+SQL*Loader: Release 11.2.0.2.0 - Production on Fri Jan 3 19:52:43 2020
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   inventos.ctl
+Character Set UTF8 specified for all input.
+
+Data File:      ../Data/inventos.csv
+  Bad File:     inventos.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 1
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table TEMP1, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+INVENTO                             FIRST     *   ,  O(") CHARACTER            
+INVENTOR                             NEXT     *   ,  O(") CHARACTER            
+PROFESIONAL_ASIGNADO                 NEXT     *   ,  O(") CHARACTER            
+JEFE_AREA                            NEXT     *   ,  O(") CHARACTER            
+FECHA_CONTRATO                       NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TO_DATE(:fecha_contrato,'DD-MON-YY')"
+SALARIO                              NEXT     *   ,  O(") CHARACTER            
+COMISION                             NEXT     *   ,  O(") CHARACTER            
+AREA_INVESTIGACION                   NEXT     *   ,  O(") CHARACTER            
+RANKING                              NEXT     *   ,  O(") CHARACTER            
+ANIO_INVENTO                         NEXT     *   ,  O(") CHARACTER            
+PAIS_INVENTO                         NEXT     *   ,  O(") CHARACTER            
+PAIS_INVENTOR                        NEXT     *   ,  O(") CHARACTER            
+REGION_PAIS                          NEXT     *   ,  O(") CHARACTER            
+CAPITAL                              NEXT     *   ,  O(") CHARACTER            
+POBLACION                            NEXT     *   ,  O(") CHARACTER            
+AREA                                 NEXT     *   ,  O(") CHARACTER            
+FRONTERA                             NEXT     *   ,  O(") CHARACTER            
+NORTE                                NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "CASE WHEN :norte IS NOT NULL THEN 1 ELSE 0 END"
+SUR                                  NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "CASE WHEN :sur IS NOT NULL THEN 1 ELSE 0 END"
+ESTE                                 NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "CASE WHEN :este IS NOT NULL THEN 1 ELSE 0 END"
+OESTE                                NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "CASE WHEN :oeste IS NOT NULL THEN 1 ELSE 0 END"
+
+value used for ROWS parameter changed from 64 to 47
+
+Table TEMP1:
+  1425 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 254646 bytes(47 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          1
+Total logical records read:          1425
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Jan 03 19:52:43 2020
+Run ended on Fri Jan 03 19:52:43 2020
+
+Elapsed time was:     00:00:00.56
+CPU time was:         00:00:00.07
