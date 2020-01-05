@@ -1,0 +1,22 @@
+NOMBRE_REGION,REGION_PADRE
+America,
+Norte America,America
+Sur America,America
+Centro America,America
+El Caribe,America
+Europa,
+Europa del Este,Europa
+Centro Europa,Europa
+Europa del Oeste,Europa
+Asia,
+Lejano Oriente,Asia
+Cercano Oriente,Asia
+Africa,
+Norte Africana,Africa
+Centro Africana,Africa
+Sur Africana,Africa
+Mediterraneo,Africa
+Oceania,
+Pacifico Sur,Oceania
+Pacifico,Oceania
+Pacifico Central,Oceania
