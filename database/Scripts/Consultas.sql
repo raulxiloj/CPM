@@ -7,12 +7,15 @@ ON p.id_pais = rp.id_pais
 GROUP BY p.nombre
 ORDER BY p.nombre;
 
--- 2. Desplegar el nombre de cada jefe seguido de sus subalternos, para todos los profesionales *****
-SELECT *
-FROM profesional;
-
-SELECT * 
-FROM profesional_area;
+-- 2. Desplegar el nombre de cada jefe seguido de sus subalternos, para todos los profesionales **
+SELECT t1.area, t1.profesional, CASE WHEN p.nombre IS NULL THEN 'KING PRESIDENT' ELSE p.nombre END AS jefe
+FROM 
+(SELECT a.id_area, a.nombre AS area, p.id_profesional, p.nombre AS profesional, a.jefe
+FROM profesional_area pa INNER JOIN area a
+ON pa.id_area = a.id_area INNER JOIN profesional p
+ON pa.id_profesional = p.id_profesional) T1 LEFT JOIN profesional p
+ON T1.jefe = p.id_profesional
+ORDER BY jefe;
 
 -- 3. Desplegar todos los profesionales, y su salario cuyo salario es mayor al promedio del salario de los profesiones en su misma area
 SELECT nombre, salario,area, promedio
@@ -66,7 +69,8 @@ FROM
 FROM profesional_area pa INNER JOIN area a
 ON pa.id_area = a.id_area INNER JOIN profesional p
 ON pa.id_profesional = p.id_profesional) T1 LEFT JOIN profesional p
-ON T1.jefe = p.id_profesional;
+ON T1.jefe = p.id_profesional
+ORDER BY jefe;
 
 ------
 SELECT *
@@ -77,7 +81,7 @@ ON i.profesional = p.id_profesional
 WHERE i2.nombre = 'Pasteur';
 
 
--- 9. Desplegar el nombre de todos los inventos inventados en el mismo anio que BENZ invento algun invento
+-- 9. Desplegar el nombre de todos los inventos inventados en el mismo anio que BENZ invento algun invento ****
 SELECT i.nombre AS invento, i2.nombre AS inventor, i.anio
 FROM detalleinvento d INNER JOIN invento i 
 ON d.id_invento = i.id_invento INNER JOIN inventor i2 
@@ -102,13 +106,3 @@ ORDER BY p.nombre;
 SELECT nombre, salario, CASE WHEN comision IS NULL THEN 0 ELSE comision END AS comision, CASE WHEN comision IS NULL THEN salario ELSE salario + comision END as total
 FROM profesional
 WHERE salario > comision*2;
-
-
-SELECT DISTINCT invento, profesional_asignado
-FROM temp1
-WHERE invento IS NOT NULL
-ORDER BY invento;
-
-SELECT DISTINCT invento 
-FROM temp1 
-WHERE invento is NOT NULL;
