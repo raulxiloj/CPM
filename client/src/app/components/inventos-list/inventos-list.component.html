@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-3 mt-4" *ngFor="let invento of inventos">
+        <div class="card text-center">
+            <div class="card-header bg-dark text-white">
+                {{invento.INVENTO}}
+                <i class="far fa-lightbulb"></i>
+            </div>
+            <div class="card-body">
+                {{invento.INVENTOR}}
+                <i class="fas fa-user-secret"></i>
+            </div>
+        </div>
+    </div>
+</div>
