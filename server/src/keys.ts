@@ -1,0 +1,13 @@
+export default{
+
+    database: {
+        host: 'localhost',
+        user: 'BD',
+        password: '123',
+        database: 'BDP2',
+        poolMin: 10,
+        poolMax: 10,
+        poolIncrement: 0
+    }
+
+}
