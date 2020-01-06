@@ -108,7 +108,8 @@ INSERT INTO detalleinvento(id_invento,id_inventor)
 SELECT  i.id_invento, i2.id_inventor
 FROM temp1 t INNER JOIN invento i 
 ON t.invento = i.nombre INNER JOIN inventor i2
-ON t.inventor = i2.nombre
+ON t.inventor = i2.nombre INNER JOIN pais p
+ON t.pais_inventor = p.nombre AND i2.pais = p.id_pais
 GROUP BY i.id_invento, i2.id_inventor;
 
 -- Area
