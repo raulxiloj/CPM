@@ -87,8 +87,7 @@
                 <ng-template #eighth>
                     <ng-container *ngIf="flag8===true; else ninth">
                         <tr *ngFor = "let row of reporte.rows">
-                            <td align="center">{{row.nombre}}</td>
-                            <td align="center">{{row.salario}}</td>
+                            <td align="center">{{row.profesional}}</td>
                             <td align="center">{{row.area}}</td>
                         </tr> 
                     </ng-container>
@@ -105,7 +104,9 @@
                 <ng-template #tenth>
                     <ng-container *ngIf="flag10===true; else eleventh">
                         <tr *ngFor = "let row of reporte.rows">
-                            <td align="center">{{row.nombre}}</td>
+                            <td align="center">{{row.isla}}</td>
+                            <td align="center">{{row.poblacion}}</td>
+                            <td align="center">{{row.area}}</td>
                         </tr> 
                     </ng-container>
                 </ng-template>  

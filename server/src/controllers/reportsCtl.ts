@@ -180,27 +180,30 @@ class ReportsCTL{
         res.json(data);
     }
 
-    //Reporte-8 ** Pendiente
+    //Reporte-8 
     async report8 (req: Request, res: Response){
-        let query = `SELECT t1.area, t1.profesional, CASE WHEN p.nombre IS NULL THEN 'KING PRESIDENT' ELSE p.nombre END AS jefe
-                     FROM 
-                     (SELECT a.id_area, a.nombre AS area, p.id_profesional, p.nombre AS profesional, a.jefe
-                     FROM profesional_area pa INNER JOIN area a
-                     ON pa.id_area = a.id_area INNER JOIN profesional p
-                     ON pa.id_profesional = p.id_profesional) T1 LEFT JOIN profesional p
-                     ON T1.jefe = p.id_profesional
-                     ORDER BY jefe`;
+        let query = `SELECT p.nombre AS profesional, a.nombre as AREA
+                     from area a INNER JOIN profesional p
+                     ON a.jefe = p.id_profesional
+                     WHERE 
+                        a.id_area <> (SELECT pa.id_area
+                        FROM detalleinvento d INNER JOIN invento i
+                        ON d.id_invento = i.id_invento INNER JOIN inventor i2 
+                        ON d.id_inventor = i2.id_inventor INNER JOIN profesional p
+                        ON i.profesional = p.id_profesional INNER JOIN profesional_area pa
+                        ON p.id_profesional = pa.id_profesional
+                        WHERE i2.nombre = 'Pasteur')
+                        AND p.nombre <> 'KING PRESIDENT'`;
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Jefe','Area','Subalternos']
+            encabezado: ['Profesional','Area']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
             rows.push({
-                jefe: response.rows[i].JEFE,
-                area: response.rows[i].AREA,
-                profesional: response.rows[i].PROFESIONAL
+                profesional: response.rows[i].PROFESIONAL,
+                area: response.rows[i].AREA
             })
         }
         data.rows = rows;
@@ -235,18 +238,28 @@ class ReportsCTL{
         res.json(data);
     }
 
-    //Reporte-10 **** pendiente
+    //Reporte-10
     async report10 (req: Request, res: Response){
-        let query = `SELECT * FROM pais`;
+        let query = `SELECT nombre AS isla, poblacion, area
+                     FROM pais 
+                     WHERE id_pais NOT IN(SELECT DISTINCT p.id_pais
+                                          FROM frontera f INNER JOIN pais p 
+                                          ON f.id_pais = p.id_pais INNER JOIN pais p2
+                                          ON f.id_frontera = p2.id_pais)
+                                          AND area >= (SELECT area
+                                                        FROM pais 
+                                                        WHERE nombre = 'Japon')`;
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: []
+            encabezado: ['Isla','Poblacion','Area']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
             rows.push({
-                nombre: response.rows[i].NOMBRE
+                isla: response.rows[i].ISLA,
+                poblacion: response.rows[i].POBLACION,
+                area: response.rows[i].AREA
             })
         }
         data.rows = rows;
