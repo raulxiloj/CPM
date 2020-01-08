@@ -2,23 +2,23 @@
     <div class="col-md-4">
         <h3 class="mb-4">Reportes</h3>
         <div class="list-group">
-            <button class="list-group-item list-group-item-action complementary text-white" (click)="report1()">1. Paises de cada continente y el numero de preguntas que han contestado</button>
+            <button class="list-group-item list-group-item-action bg-dark text-white" (click)="report1()">1. Paises de cada continente y el numero de preguntas que han contestado</button>
             <button class="list-group-item list-group-item-action" (click)="report2()">2. Nombre de cada jefe seguido de todos sus subalternos</button>
-            <button class="list-group-item list-group-item-action complementary text-white" (click)="report3()">3. Profesionales y su salario cuyo salario es mayor al promedio del salario de los profesionales de su misma area</button>
+            <button class="list-group-item list-group-item-action bg-dark text-white" (click)="report3()">3. Profesionales y su salario cuyo salario es mayor al promedio del salario de los profesionales de su misma area</button>
             <button class="list-group-item list-group-item-action" (click)="report4()">4. Países que han contestado encuestas, ordenados del país que más aciertos ha tenido hasta el que menos aciertos ha tenido</button>
-            <button class="list-group-item list-group-item-action complementary text-white" (click)="report5()">5. Pais y Area de los paises que tienen mas de 7 fronteras</button>
+            <button class="list-group-item list-group-item-action bg-dark text-white" (click)="report5()">5. Pais y Area de los paises que tienen mas de 7 fronteras</button>
             <button class="list-group-item list-group-item-action" (click)="report6()">6. Profesionales con comision mayor que el 25% de su salario</button>
-            <button class="list-group-item list-group-item-action complementary text-white" (click)="report7()">7. Paises cuya poblacion sea mayor a la poblacion de los paises centroamericanos juntos</button>
+            <button class="list-group-item list-group-item-action bg-dark text-white" (click)="report7()">7. Paises cuya poblacion sea mayor a la poblacion de los paises centroamericanos juntos</button>
             <button class="list-group-item list-group-item-action" (click)="report8()">8. Jefes de cada profesional que no esten en el mismo departamento que el profesional que atiende al inventor Pasteur</button>
-            <button class="list-group-item list-group-item-action complementary text-white" (click)="report9()">9. Nombre de todos los inventos inventados en el mismo anio que Benze invento algun invento</button>
+            <button class="list-group-item list-group-item-action bg-dark text-white" (click)="report9()">9. Nombre de todos los inventos inventados en el mismo anio que Benze invento algun invento</button>
             <button class="list-group-item list-group-item-action" (click)="report10()">10. Nombre y numero de habitantes de todas las islas que tiene un area mayor o igual al area de Japon</button>
-            <button class="list-group-item list-group-item-action complementary text-white" (click)="report11()">11. Paises con el nombre de cada pais con el cual tiene una frontera</button>
+            <button class="list-group-item list-group-item-action bg-dark text-white" (click)="report11()">11. Paises con el nombre de cada pais con el cual tiene una frontera</button>
             <button class="list-group-item list-group-item-action" (click)="report12()">12. Profesionales con salario mayor que el doble de su comision</button>
         </div>
     </div>
     <div class="col-md-6 offset-md-1 mt-5">
         <table class="table table-hover">
-            <thead class="blue-color text-white">
+            <thead class="bg-dark text-white">
                 <tr align="center">
                     <th *ngFor = "let enca of reporte.encabezado" scope="col">{{enca}}</th>  
                 </tr>    

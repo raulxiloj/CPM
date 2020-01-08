@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form >
+                    <div class="form-group">
+                        <input type="text" name="name" [(ngModel)]="inventor.nombre" placeholder="Nombre del inventor" class="form-control" id="encuesta-form" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName">Nacionalidad</label>
+                        <select class="custom-select" name="pais" [(ngModel)]="inventor.pais">
+                            <option value={{pais.ID_PAIS}} *ngFor="let pais of paises">{{pais.NOMBRE}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary" (click)="registrarInventor()">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

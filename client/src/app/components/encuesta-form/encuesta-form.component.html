@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="list-group">
+            <button *ngFor="let encuesta of encuestas" class="list-group-item list-group-item-action h5 bg-dark text-white" (click)="getPreguntas(encuesta)">{{encuesta.nombre}}</button>
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-1">
+        <div class="card">
+            <div class="card-body">
+                <form >
+                    <div class="row">
+                        <div class="col-md-10 col-sm-4">
+                            <div class="form-group">
+                                <input type="text" name="name" [(ngModel)]="nuevaEncuesta" placeholder="Nombre de la encuesta" class="form-control" id="encuesta-form" autofocus>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <button type="submit" class="btn btn-primary" (click)="crearEncuesta()">Crear</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="flag===true;">
+    <hr/>
+    <div class="row">
+       <div class="col-md-4">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let pregunta of preguntas ">{{pregunta}}</li>
+        </ul>
+       </div>
+       <div class="col-md-6 offset-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <form >
+                        <div class="row">
+                            <div class="col-md-10 col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" name="question" [(ngModel)]="nuevaPregunta" placeholder="Nueva pregunta" class="form-control" id="encuesta-form" autofocus>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button type="submit" class="btn btn-primary" (click)="agregarPregunta()">Agregar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+       </div> 
+    </div>
+</ng-container>

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-3 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form >
+                    <div class="form-group">
+                        <input type="text" name="pais" [(ngModel)]="pais.nombre" placeholder="Nombre del pais" class="form-control" id="encuesta-form" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="poblacion" [(ngModel)]="pais.poblacion" placeholder="Poblacion" class="form-control" id="encuesta-form" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="area" [(ngModel)]="pais.area" placeholder="Area" class="form-control" id="encuesta-form" >
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName">Region</label>
+                        <select class="custom-select" name="region" [(ngModel)]="pais.id_region">
+                            <option value={{region.ID_REGION}} *ngFor="let region of regiones">{{region.NOMBRE}}</option>
+                        </select>
+                    </div>
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-primary " (click)="agregarPais()">Registrar </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</div>

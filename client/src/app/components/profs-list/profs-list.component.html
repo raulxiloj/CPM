@@ -1,0 +1,20 @@
+<div class="col-md-6 offset-md-3">
+    <table class="table table-hover">
+        <thead class="bg-dark text-white">
+            <tr align="center">
+                <th  scope="col">Profesional</th>
+                <th  scope="col">Salario</th>
+                <th  scope="col">Comision</th> 
+                <th  scope="col">Fecha-Contrato</th>  
+            </tr>    
+        </thead>
+        <tbody>
+            <tr *ngFor = "let prof of profesionales">
+                <td align="center">{{prof.nombre}}</td>
+                <td align="center">{{prof.salario}}</td>
+                <td align="center">{{prof.comision}}</td>
+                <td align="center">{{prof.fecha_contrato}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

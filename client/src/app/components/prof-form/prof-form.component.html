@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form >
+                    <div class="form-group">
+                        <input type="text" name="nombre" [(ngModel)]="profesional.nombre" placeholder="Nombre del profesional" class="form-control" id="encuesta-form" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="salario" [(ngModel)]="profesional.salario" placeholder="Salario" class="form-control" id="encuesta-form" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="comision" [(ngModel)]="profesional.comision" placeholder="Comision" class="form-control" id="encuesta-form" autofocus>
+                    </div>
+                    <label for="inputName">Fecha de contrato</label>
+                    <div class="form-group">
+                        <input type="date" name="contrato" [(ngModel)]="profesional.contrato" class="form-control" id="encuesta-form" autofocus>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary" (click)="registrarProfesional()">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

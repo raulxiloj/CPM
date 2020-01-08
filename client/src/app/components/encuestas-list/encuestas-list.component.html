@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-3 mt-4" *ngFor="let encuesta of encuestas">
+        <div class="card text-center">
+            <div class="card-header bg-dark text-white">
+                {{encuesta.nombre}}
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group">
+                    <li class="list-group-item  list-group-item-action text-justify" *ngFor="let item of encuesta.preguntas" >{{item}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

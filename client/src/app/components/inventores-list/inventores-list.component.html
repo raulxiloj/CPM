@@ -1,0 +1,16 @@
+<div class="col-md-6 offset-md-3">
+    <table class="table table-hover">
+        <thead class="bg-dark text-white">
+            <tr align="center">
+                <th  scope="col">Inventor</th>
+                <th  scope="col">Nacio en</th>
+            </tr>    
+        </thead>
+        <tbody>
+            <tr *ngFor = "let inventor of inventores">
+                <td align="center">{{inventor.INVENTOR}}</td>
+                <td align="center">{{inventor.PAIS}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
