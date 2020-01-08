@@ -89,8 +89,16 @@ WHERE anio = (SELECT anio
               WHERE i2.nombre = 'Benz');
 
 -- 10. Desplegar los nombres y el numero de habitantes de todas las islas que tienen un area mayor o igual al area de Japon *****
--- ISLA?
-
+SELECT nombre AS isla, poblacion, area
+FROM pais 
+WHERE id_pais NOT IN(SELECT DISTINCT p.id_pais
+                     FROM frontera f INNER JOIN pais p 
+                     ON f.id_pais = p.id_pais INNER JOIN pais p2
+                     ON f.id_frontera = p2.id_pais)
+                     AND area >= (SELECT area
+                                  FROM pais 
+                                  WHERE nombre = 'Japon');
+                    
 -- 11. Desplegar todos los paises con el nombre de cada pais con el cual tiene una frontera
 SELECT p.nombre AS pais, p2.nombre AS frontera
 FROM frontera f INNER JOIN pais p 
