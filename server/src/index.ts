@@ -3,6 +3,9 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import encuestaRoutes from './routes/encuestasRoutes'
+import paisRoutes from './routes/paisesRoutes'
+import profsRoutes from './routes/profsRoutes'
+import inventoresRoutes from './routes/inventoresRoutes'
 import inventosRoutes from './routes/inventosRoutes'
 import reportsRoutes from './routes/reportsRoutes'
 
@@ -27,9 +30,12 @@ class Server {
     }
 
     routes(): void {
-        this.app.use('/encuesta',encuestaRoutes);
-        this.app.use('/invento',inventosRoutes);
-        this.app.use('/reportes',reportsRoutes)
+        this.app.use('/encuestas',encuestaRoutes);
+        this.app.use('/paises',paisRoutes);
+        this.app.use('/profs/',profsRoutes);
+        this.app.use('/inventores',inventoresRoutes)
+        this.app.use('/inventos',inventosRoutes);
+        this.app.use('/reportes',reportsRoutes);
     }
 
     start(): void {
