@@ -62,23 +62,19 @@ WHERE poblacion > (SELECT SUM(poblacion)
                    ON p.region = r.id_region
                    WHERE r.nombre = 'Centro America');
 
--- 8. Desplegar todos los jefes de cada profesional que no esten en el mismo departamento que el del profesional que atiende al inventor 'Pasteur' *****
-SELECT t1.area, t1.profesional, CASE WHEN p.nombre IS NULL THEN 'KING PRESIDENT' ELSE p.nombre END AS jefe
-FROM 
-(SELECT a.id_area, a.nombre AS area, p.id_profesional, p.nombre AS profesional, a.jefe
-FROM profesional_area pa INNER JOIN area a
-ON pa.id_area = a.id_area INNER JOIN profesional p
-ON pa.id_profesional = p.id_profesional) T1 LEFT JOIN profesional p
-ON T1.jefe = p.id_profesional
-ORDER BY jefe;
-
-------
-SELECT *
-FROM detalleinvento d INNER JOIN invento i
-ON d.id_invento = i.id_invento INNER JOIN inventor i2 
-ON d.id_inventor = i2.id_inventor INNER JOIN profesional p
-ON i.profesional = p.id_profesional
-WHERE i2.nombre = 'Pasteur';
+-- 8. Desplegar todos los jefes de cada profesional que no esten en el mismo departamento que el del profesional que atiende al inventor 'Pasteur' 
+SELECT p.nombre, a.nombre
+from area a INNER JOIN profesional p
+ON a.jefe = p.id_profesional
+WHERE 
+    a.id_area <> (SELECT pa.id_area
+    FROM detalleinvento d INNER JOIN invento i
+    ON d.id_invento = i.id_invento INNER JOIN inventor i2 
+    ON d.id_inventor = i2.id_inventor INNER JOIN profesional p
+    ON i.profesional = p.id_profesional INNER JOIN profesional_area pa
+    ON p.id_profesional = pa.id_profesional
+    WHERE i2.nombre = 'Pasteur')
+    AND p.nombre <> 'KING PRESIDENT';
 
 
 -- 9. Desplegar el nombre de todos los inventos inventados en el mismo anio que BENZ invento algun invento ****
