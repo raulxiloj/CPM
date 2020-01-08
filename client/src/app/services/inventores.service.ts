@@ -4,17 +4,17 @@ import { HttpClient } from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
-export class InventosService {
+export class InventoresService {
 
-  API_URI = 'http://localhost:3000/inventos'
+  API_URI = 'http://localhost:3000/inventores'
 
   constructor(private http: HttpClient) { }
 
-  getInventos(){
-    return this.http.get(`${this.API_URI}`);
+  getInventores(){
+    return this.http.get(`${this.API_URI}/getInventores`);
   }
 
-  agregarInvento(data: Object){
+  registrarInventor(data: Object){
     return this.http.post(`${this.API_URI}/agregarInvento`,data);
   }
 
