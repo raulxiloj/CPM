@@ -18,10 +18,10 @@ class ReportsCTL {
                      FROM pais p LEFT JOIN res_pais rp
                      ON p.id_pais = rp.id_pais
                      GROUP BY p.nombre
-                     ORDER BY p.nombre`;
+                     ORDER BY Preguntas_contestadas DESC`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Pais', 'Preguntas contestadas']
+                encabezado: ['#', 'Pais', 'Preguntas contestadas']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -47,7 +47,7 @@ class ReportsCTL {
                      ORDER BY jefe`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Jefe', 'Area', 'Subalternos']
+                encabezado: ['#', 'Jefe', 'Area', 'Subalternos']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -79,7 +79,7 @@ class ReportsCTL {
                      WHERE salario > promedio`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Nombre', 'Salario', 'Area', 'Promedio']
+                encabezado: ['#', 'Nombre', 'Salario', 'Area', 'Promedio']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -105,7 +105,7 @@ class ReportsCTL {
                      ORDER BY correctas DESC`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Nombre', 'Respuestas correctas']
+                encabezado: ['#', 'Nombre', 'Respuestas correctas']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -130,7 +130,7 @@ class ReportsCTL {
                      ORDER BY p.area DESC`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Pais', 'Fronteras', 'Area']
+                encabezado: ['#', 'Pais', 'Fronteras', 'Area']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -152,7 +152,7 @@ class ReportsCTL {
                      WHERE comision > salario*0.25`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Nombre', 'Salario', 'Comision', 'Total']
+                encabezado: ['#', 'Nombre', 'Salario', 'Comision', 'Total']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -178,7 +178,7 @@ class ReportsCTL {
                                         WHERE r.nombre = 'Centro America')`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Nombre', 'Poblacion']
+                encabezado: ['#', 'Nombre', 'Poblacion']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -208,7 +208,7 @@ class ReportsCTL {
                         AND p.nombre <> 'KING PRESIDENT'`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Profesional', 'Area']
+                encabezado: ['#', 'Profesional', 'Area']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -235,7 +235,7 @@ class ReportsCTL {
                                    WHERE i2.nombre = 'Benz')`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Invento', 'Inventor', 'Anio']
+                encabezado: ['#', 'Invento', 'Inventor', 'Anio']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -263,7 +263,7 @@ class ReportsCTL {
                                                         WHERE nombre = 'Japon')`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Isla', 'Poblacion', 'Area']
+                encabezado: ['#', 'Isla', 'Poblacion', 'Area']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -287,7 +287,7 @@ class ReportsCTL {
                      ORDER BY p.nombre`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Pais', 'Frontera']
+                encabezado: ['#', 'Pais', 'Frontera']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {
@@ -308,7 +308,7 @@ class ReportsCTL {
                      WHERE salario > comision*2`;
             const response = yield database.simpleExecute(query);
             const data = {
-                encabezado: ['Nombre', 'Salario', 'Comision', 'Total']
+                encabezado: ['#', 'Nombre', 'Salario', 'Comision', 'Total']
             };
             const rows = [];
             for (let i = 0; i < response.rows.length; i++) {

@@ -9,10 +9,10 @@ class ReportsCTL{
                      FROM pais p LEFT JOIN res_pais rp
                      ON p.id_pais = rp.id_pais
                      GROUP BY p.nombre
-                     ORDER BY p.nombre`;
+                     ORDER BY Preguntas_contestadas DESC`;
         const response = await database.simpleExecute(query);
         const data: any = { 
-            encabezado: ['Pais','Preguntas contestadas']
+            encabezado: ['#','Pais','Preguntas contestadas']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -37,7 +37,7 @@ class ReportsCTL{
                      ORDER BY jefe`;
         const response = await database.simpleExecute(query);
         const data: any = { 
-            encabezado: ['Jefe','Area','Subalternos']
+            encabezado: ['#','Jefe','Area','Subalternos']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -68,7 +68,7 @@ class ReportsCTL{
                      WHERE salario > promedio`;
         const response = await database.simpleExecute(query);
         const data: any = { 
-            encabezado: ['Nombre','Salario','Area','Promedio']
+            encabezado: ['#','Nombre','Salario','Area','Promedio']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -94,7 +94,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Nombre','Respuestas correctas']
+            encabezado: ['#','Nombre','Respuestas correctas']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -119,7 +119,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Pais','Fronteras','Area']
+            encabezado: ['#','Pais','Fronteras','Area']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -141,7 +141,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Nombre','Salario','Comision','Total']
+            encabezado: ['#','Nombre','Salario','Comision','Total']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -167,7 +167,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Nombre','Poblacion']
+            encabezado: ['#','Nombre','Poblacion']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -197,7 +197,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Profesional','Area']
+            encabezado: ['#','Profesional','Area']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -224,7 +224,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Invento','Inventor','Anio']
+            encabezado: ['#','Invento','Inventor','Anio']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -252,7 +252,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Isla','Poblacion','Area']
+            encabezado: ['#','Isla','Poblacion','Area']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -276,7 +276,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Pais','Frontera']
+            encabezado: ['#','Pais','Frontera']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){
@@ -297,7 +297,7 @@ class ReportsCTL{
         const response = await database.simpleExecute(query);
         
         const data: any = { 
-            encabezado: ['Nombre','Salario','Comision','Total']
+            encabezado: ['#','Nombre','Salario','Comision','Total']
         };
         const rows: any = [];
         for(let i = 0; i < response.rows.length; i++){

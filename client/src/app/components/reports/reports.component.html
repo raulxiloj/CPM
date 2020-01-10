@@ -25,14 +25,16 @@
             </thead>
             <tbody>
                 <ng-container *ngIf="flag1===true; else second">
-                    <tr *ngFor = "let row of reporte.rows">
+                    <tr *ngFor = "let row of reporte.rows; let i = index">
+                        <td align="center">{{i + 1}}</td> 
                         <td align="center">{{row.nombre}}</td>
                         <td align="center">{{row.preguntas}}</td>
                     </tr>
                 </ng-container>
                 <ng-template #second>
                     <ng-container *ngIf="flag2===true; else third">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.jefe}}</td>
                             <td align="center">{{row.area}}</td>
                             <td align="center">{{row.subalterno}}</td>
@@ -41,7 +43,8 @@
                 </ng-template>
                 <ng-template #third>
                     <ng-container *ngIf="flag3===true; else fourth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.nombre}}</td>
                             <td align="center">{{row.salario}}</td>
                             <td align="center">{{row.area}}</td>
@@ -51,7 +54,8 @@
                 </ng-template>
                 <ng-template #fourth>
                     <ng-container *ngIf="flag4===true; else fifth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.nombre}}</td>
                             <td align="center">{{row.correctas}}</td>
                         </tr> 
@@ -59,7 +63,8 @@
                 </ng-template>  
                 <ng-template #fifth>
                     <ng-container *ngIf="flag5===true; else sixth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.pais}}</td>
                             <td align="center">{{row.frontera}}</td>
                             <td align="center">{{row.area}}</td>
@@ -68,7 +73,8 @@
                 </ng-template>  
                 <ng-template #sixth>
                     <ng-container *ngIf="flag6===true; else seventh">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.nombre}}</td>
                             <td align="center">{{row.salario}}</td>
                             <td align="center">{{row.comision}}</td>
@@ -78,7 +84,8 @@
                 </ng-template>  
                 <ng-template #seventh>
                     <ng-container *ngIf="flag7===true; else eighth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.nombre}}</td>
                             <td align="center">{{row.poblacion}}</td>
                         </tr> 
@@ -86,7 +93,8 @@
                 </ng-template>  
                 <ng-template #eighth>
                     <ng-container *ngIf="flag8===true; else ninth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.profesional}}</td>
                             <td align="center">{{row.area}}</td>
                         </tr> 
@@ -94,7 +102,8 @@
                 </ng-template>  
                 <ng-template #ninth>
                     <ng-container *ngIf="flag9===true; else tenth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.invento}}</td>
                             <td align="center">{{row.inventor}}</td>
                             <td align="center">{{row.anio}}</td>
@@ -103,7 +112,8 @@
                 </ng-template>  
                 <ng-template #tenth>
                     <ng-container *ngIf="flag10===true; else eleventh">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.isla}}</td>
                             <td align="center">{{row.poblacion}}</td>
                             <td align="center">{{row.area}}</td>
@@ -112,7 +122,8 @@
                 </ng-template>  
                 <ng-template #eleventh>
                     <ng-container *ngIf="flag11===true; else twelfth">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.pais}}</td>
                             <td align="center">{{row.frontera}}</td>
                         </tr> 
@@ -120,7 +131,8 @@
                 </ng-template>  
                 <ng-template #twelfth>
                     <ng-container *ngIf="flag12===true;">
-                        <tr *ngFor = "let row of reporte.rows">
+                        <tr *ngFor = "let row of reporte.rows; let i = index">
+                            <td align="center">{{i + 1}}</td> 
                             <td align="center">{{row.nombre}}</td>
                             <td align="center">{{row.salario}}</td>
                             <td align="center">{{row.comision}}</td>
